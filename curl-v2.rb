@@ -3,10 +3,20 @@
 require 'nokogiri'
 require 'open-uri'
 
-uri = Nokogiri::HTML(URI.open('https://rnm.franceagrimer.fr/prix?M2503:MARCHE'))
+def web_scraper(url)
+    uri = Nokogiri::HTML(URI.open(url))
 
-# https://readysteadycode.com/howto-parse-html-with-ruby-and-nokogiri
+    # https://readysteadycode.com/howto-parse-html-with-ruby-and-nokogiri
 
-uri.css('a').each do |link|
-    puts link.content
-  end
+    uri.css('td').each do |link|
+        filter = /[[:upper:]]{3,} [[A-Z]]{0,1}[a-z]+/.match(link.content) # Filter fruits & vegetables
+        # filter = /\d*\R{0}/.match(link.content)
+    
+    if filter.to_s.length > 0
+            puts filter
+        end
+        # puts link.content
+    end
+end
+
+web_scraper('https://rnm.franceagrimer.fr/prix?M2503:MARCHE')
