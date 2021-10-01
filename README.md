@@ -12,4 +12,10 @@ Make available the prices of fruit and vegetables in France through an applicati
 ## Collaboration
 If you want to join my project, fill free to ask.
 
+## Tests
+If you want to test your code, you can use the `test.html` file and launch a local webser with the following command :
+```
+ruby -rwebrick -e'WEBrick::HTTPServer.new(Port: 8000, DocumentRoot: "<ling_to_repository>/ruby-scapping/test.html").start'
+```
+
 Source : FranceAgriMer – Original data downloaded from the [FranceAgriMer](https://rnm.franceagrimer.fr/prix?M2503:MARCHE) page
