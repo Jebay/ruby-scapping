@@ -21,15 +21,16 @@ def web_scraper(url)
             # puts filter_price
         end
     end
-    print filter_result_array
+    # print filter_result_array
+    return filter_result_array
 end
 
 def create_food_objects(list)
     food_tmp = Food.new("", [])
     res_list = []
     for i in 0..list.length-1
-        tmp = /[[:upper:]]{3,} [[A-Z]]{0,1}[a-z]+/.match(list[i])
-        tmp_price = /[[\-+]]{0,1}[[:digit:]]{1,}[[.]]{0,1}[[:digit:]]{0,}/.match(list[i])
+        tmp = /[[:upper:]]{3,} [[A-Z]]{0,1}[a-z]+/.match(list[i].to_s)
+        tmp_price = /[[\-+]]{0,1}[[:digit:]]{1,}[[.]]{0,1}[[:digit:]]{0,}/.match(list[i].to_s)
         if tmp.to_s.length > 0
             if i != 0
                 res_list.push(food_tmp)
@@ -43,10 +44,18 @@ def create_food_objects(list)
             next
         end
     end
+    res_list.push(food_tmp)
     return res_list
 end
 
 # web_scraper('https://rnm.franceagrimer.fr/prix?M2503:MARCHE')
+# food_list = web_scraper('http://localhost:8000')
+# res = create_food_objects(food_list)
 test_list = ["RAISIN noir", "6.21", "-0.61", "4.98", "7.99", "RAISIN noir", "5.01", "+0.13", "3.25", "6.49"]
 res =  create_food_objects(test_list)
 print res
+res.each do |food|
+    food.display
+    puts food
+end
+

@@ -24,7 +24,7 @@ class Food
         @prices = @prices.push(price)
     end
 
-    def display()
-        puts "@name : Average price @prices[0], delta @price[1], Min price @price[2], Max price @price[3]"
+    def display
+        puts "#{@name} : Average price #{@prices[0]}, delta #{@price[1]}, Min price #{@price[2]}, Max price #{@price[3]}"
     end
 end
