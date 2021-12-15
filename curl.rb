@@ -7,7 +7,7 @@ require_relative 'food'
 
 def web_scraper(url)
   filter_result_array = []
-  uri = Nokogiri::HTML(URI.open(url))
+  uri = Nokogiri::HTML(URI.parse(url).open)
 
   uri.css('td').each do |link|
     filter = /[[:upper:]]{3,} [[A-Z]]{0,1}[a-z]+/.match(link.content) # Filter fruits & vegetables
