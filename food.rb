@@ -7,7 +7,7 @@ class Food
     def get_name
         @name
     end
-    
+
     def set_name=(name)
         @name = name
     end
@@ -15,7 +15,7 @@ class Food
     def get_prices
         @prices
     end
-    
+
     def set_prices=(prices)
         @prices = prices
     end
