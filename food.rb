@@ -25,6 +25,6 @@ class Food
     end
 
     def display
-        puts "#{@name} : Average price #{@prices[0]}, delta #{@price[1]}, Min price #{@price[2]}, Max price #{@price[3]}"
+        puts "#{@name} : Average price #{@prices[0]}, delta #{@prices[1]}, Min price #{@prices[2]}, Max price #{@prices[3]}"
     end
 end

@@ -49,13 +49,12 @@ def create_food_objects(list)
 end
 
 # web_scraper('https://rnm.franceagrimer.fr/prix?M2503:MARCHE')
-# food_list = web_scraper('http://localhost:8000')
-# res = create_food_objects(food_list)
-test_list = ["RAISIN noir", "6.21", "-0.61", "4.98", "7.99", "RAISIN noir", "5.01", "+0.13", "3.25", "6.49"]
-res =  create_food_objects(test_list)
-print res
+food_list = web_scraper('http://localhost:8000')
+res = create_food_objects(food_list)
+# test_list = ["RAISIN noir", "6.21", "-0.61", "4.98", "7.99", "RAISIN noir", "5.01", "+0.13", "3.25", "6.49"]
+# res =  create_food_objects(test_list)
 res.each do |food|
     food.display
-    puts food
+    #puts food
 end
 
