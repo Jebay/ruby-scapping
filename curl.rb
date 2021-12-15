@@ -13,11 +13,11 @@ def web_scraper(url)
     filter = /[[:upper:]]{3,} [[A-Z]]{0,1}[a-z]+/.match(link.content) # Filter fruits & vegetables
     filter_price = /[[\-+]]{0,1}[[:digit:]]{1,}[[.]]{0,1}[[:digit:]]{0,}/.match(link.content) # Filter price
 
-    if filter.to_s.length.positive?
+    if !filter.to_s.empty?
       filter_result_array.push(filter)
       # puts filter
     end
-    if filter_price.to_s.length.positive?
+    if !filter_price.to_s.empty?
       filter_result_array.push(filter_price)
       # puts filter_price
     end
@@ -32,7 +32,7 @@ def create_food_objects(list)
   (0..list.length - 1).each do |i| # for i in 0..list.length-1
     tmp = /[[:upper:]]{3,} [[A-Z]]{0,1}[a-z]+/.match(list[i].to_s)
     tmp_price = /[[\-+]]{0,1}[[:digit:]]{1,}[[.]]{0,1}[[:digit:]]{0,}/.match(list[i].to_s)
-    if tmp.to_s.length.positive?
+    if !tmp.to_s.empty?
       if i != 0
         res_list.push(food_tmp)
         food_tmp = Food.new('', [])
@@ -40,7 +40,7 @@ def create_food_objects(list)
       food_tmp.set_name = list[i]
       next
     end
-    if tmp_price.to_s.length.positive?
+    if !tmp_price.to_s.empty?
       food_tmp.fill_prices = list[i]
       next
     end
