@@ -9,8 +9,6 @@ AllCops:
   NewCops: enable
 Naming/InclusiveLanguage:
   Enabled: false
-Doctolib/NoNewContext:
-  Enabled: true
 Layout/ParameterAlignment:
   Enabled: true
   EnforcedStyle: with_fixed_indentation
