@@ -1,0 +1,190 @@
+require:
+  - rubocop-performance
+  - rubocop-rake
+
+AllCops:
+  Exclude:
+    - '**/vendor/**/*'
+  AllowSymlinksInCacheRootDirectory: true
+  TargetRubyVersion: 2.6
+  NewCops: enable
+Naming/InclusiveLanguage:
+  Enabled: false
+Doctolib/NoNewContext:
+  Enabled: true
+Layout/ParameterAlignment:
+  Enabled: true
+  EnforcedStyle: with_fixed_indentation
+Layout/HashAlignment:
+  EnforcedLastArgumentHashStyle: ignore_implicit
+# This cop mainly do false positives.
+Layout/ClosingParenthesisIndentation:
+  Enabled: false
+Layout/DotPosition:
+  Enabled: true
+  EnforcedStyle: leading
+Layout/EmptyLineBetweenDefs:
+  AllowAdjacentOneLineDefs: true
+Layout/EmptyLinesAroundAccessModifier:
+  Enabled: true
+Layout/EmptyLinesAroundClassBody:
+  Enabled: true
+  EnforcedStyle: no_empty_lines
+Layout/EmptyLinesAroundModuleBody:
+  Enabled: true
+  EnforcedStyle: no_empty_lines
+Layout/EmptyLineAfterGuardClause:
+  Enabled: false
+Layout/FirstArrayElementIndentation:
+  EnforcedStyle: consistent
+Layout/IndentationConsistency:
+  Enabled: true
+  EnforcedStyle: normal
+# Too many false positives.
+Layout/MultilineMethodCallBraceLayout:
+  Enabled: false
+Layout/MultilineOperationIndentation:
+  Enabled: false
+Layout/MultilineAssignmentLayout:
+  Enabled: true
+  EnforcedStyle: new_line
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+Layout/SpaceInLambdaLiteral:
+  Enabled: false
+Layout/SpaceInsideBlockBraces:
+  EnforcedStyle: space
+Layout/SpaceInsideHashLiteralBraces:
+  Enabled: true
+Layout/SpaceAroundMethodCallOperator:
+  Enabled: true
+Layout/EmptyLinesAroundAttributeAccessor:
+  Enabled: true
+Lint/ShadowingOuterLocalVariable:
+  Enabled: false
+Lint/RedundantSplatExpansion:
+  Enabled: false
+Lint/RaiseException:
+  Enabled: true
+Lint/StructNewOverride:
+  Enabled: true
+Lint/DeprecatedOpenSSLConstant:
+  Enabled: true
+Metrics/AbcSize:
+  Enabled: false
+Metrics/BlockLength:
+  Enabled: false
+Metrics/ClassLength:
+  Enabled: false
+Metrics/CyclomaticComplexity:
+  Enabled: false
+Layout/LineLength:
+  Max: 120
+Metrics/MethodLength:
+  Max: 40
+Metrics/ModuleLength:
+  Enabled: false
+Metrics/PerceivedComplexity:
+  Enabled: false
+Naming/AccessorMethodName:
+  Enabled: false
+Naming/MemoizedInstanceVariableName:
+  Enabled: false
+# Half the code is snake_case, and default is normalcase, no consensus.
+Naming/VariableNumber:
+  Enabled: false
+Naming/FileName:
+  Enabled: false
+Performance/Casecmp:
+  Enabled: true
+Security/YAMLLoad:
+  Enabled: true
+Style/Alias:
+  EnforcedStyle: prefer_alias_method
+Style/AndOr:
+  Enabled: true
+Style/AsciiComments:
+  Enabled: false
+Style/BlockDelimiters:
+  Enabled: false
+Style/CharacterLiteral:
+  Enabled: false
+Style/CollectionMethods:
+  Enabled: true
+  PreferredMethods:
+    collect: map
+    collect!: map!
+    detect: find
+    find_all: select
+    inject: reduce
+Style/MultilineTernaryOperator:
+  Enabled: false
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: consistent_comma
+Style/TrailingUnderscoreVariable:
+  Enabled: false
+Style/CommandLiteral:
+  Enabled: true
+  EnforcedStyle: percent_x
+Style/CommentAnnotation:
+  Enabled: false
+Style/CommentedKeyword:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
+Style/DoubleNegation:
+  Enabled: false
+Style/EvenOdd:
+  Enabled: false
+Style/GuardClause:
+  Enabled: false
+Style/HashEachMethods:
+  Enabled: true
+Style/HashSyntax:
+  Enabled: true
+  EnforcedStyle: ruby19
+  UseHashRocketsWithSymbolValues: false
+Style/HashTransformKeys:
+  Enabled: true
+Style/HashTransformValues:
+  Enabled: true
+Style/Lambda:
+  Enabled: false
+Style/MethodDefParentheses:
+  Enabled: true
+  EnforcedStyle: require_parentheses
+Style/MultilineBlockChain:
+  Enabled: false
+Style/MutableConstant:
+  Enabled: false
+Style/NegatedIf:
+  Enabled: false
+Style/NumericPredicate:
+  Enabled: true
+  EnforcedStyle: comparison
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    "%W": ()
+    "%i": ()
+    "%w": ()
+Style/RaiseArgs:
+  EnforcedStyle: exploded
+Style/SignalException:
+  Enabled: false
+Style/SpecialGlobalVars:
+  Enabled: false
+Style/StringLiterals:
+  Enabled: true
+  EnforcedStyle: single_quotes
+Style/SymbolArray:
+  Enabled: true
+Style/TrailingCommaInArrayLiteral:
+  Enabled: true
+  EnforcedStyleForMultiline: consistent_comma
+Style/TrailingCommaInHashLiteral:
+  Enabled: true
+  EnforcedStyleForMultiline: comma
+Style/ExponentialNotation:
+  Enabled: true
+Style/SlicingWithRange:
+  Enabled: true
