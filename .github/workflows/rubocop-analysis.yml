@@ -38,7 +38,7 @@ jobs:
     - name: Rubocop run
       run: |
         bash -c "
-          bundle exec rubocop --format CodeScanning::SarifFormatter -o rubocop.sarif
+          bundle exec rubocop -o rubocop.sarif
           [[ $? -ne 2 ]]
         "
 
