@@ -27,7 +27,7 @@ jobs:
             BRANCH: gh-pages
             FOLDER: build_output
             CLEAN: true
-            
+
       - name: Delete artifact 🗑️
         uses: geekyeggo/delete-artifact@v2
         with:
