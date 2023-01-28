@@ -1,0 +1,34 @@
+name: Publish Gallery
+on:
+  push:
+    branches:
+      - main
+permissions:
+  contents: write
+jobs:
+  test:
+    name: Publish Gallery to Github Pages
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: false
+
+      - name: Generate HTML file 🌐
+        run: |
+          chmod +x chatGPT.rb && ./chatGpt.rb
+          mkdir build_output && mv index.html build_output
+
+      - name: Deploy to Github Pages 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            BRANCH: gh-pages
+            FOLDER: build_output
+            CLEAN: true
+            
+      - name: Delete artifact 🗑️
+        uses: geekyeggo/delete-artifact@v2
+        with:
+          name: build_output
