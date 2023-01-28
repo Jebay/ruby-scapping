@@ -3,6 +3,7 @@
 
 # This code was generated with the help of ChatGPT, a language processing model trained by OpenAI.
 
+require "erb"
 require 'nokogiri'
 require 'open-uri'
 require_relative 'fruit'
@@ -25,8 +26,20 @@ def web_scraper
     fruits << Fruit.new(name, price, varia, min, max) if /^[0-9]/.match?(price)
   end
 
-  # Print the fruits array
-  fruits.each(&:display)
+  template = File.read("index.html.erb")
+  renderer = ERB.new(template)
+
+  # Create a new binding with 'fruits' as an instance variable
+  context = binding
+  context.local_variable_set(:fruits, fruits)
+
+  # Render the template with the new binding
+  result = renderer.result(context)
+
+  # Write the result to the 'index.html' file
+  File.open("index.html", "w") do |file|
+    file.write(result)
+  end
 end
 
 web_scraper
