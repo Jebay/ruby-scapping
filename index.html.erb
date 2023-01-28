@@ -17,13 +17,13 @@
         </tr>
       </thead>
       <tbody>
-        <% fruits.each do |fruit| %>
+        <% foods.each do |food| %>
           <tr>
-            <td><%= fruit.get_name %></td>
-            <td><%= fruit.get_price %></td>
-            <td><%= fruit.get_varia %>%</td>
-            <td><%= fruit.get_min %></td>
-            <td><%= fruit.get_max %></td>
+            <td><%= food.get_name %></td>
+            <td><%= food.get_price %>€</td>
+            <td><%= food.get_varia %>%</td>
+            <td><%= food.get_min %>€</td>
+            <td><%= food.get_max %>€</td>
           </tr>
           <% end %>
       </tbody>
