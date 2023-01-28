@@ -17,6 +17,7 @@ jobs:
 
       - name: Generate HTML file 🌐
         run: |
+          bundle install
           rake web_scraper
 
       - name: Deploy to Github Pages 🚀
