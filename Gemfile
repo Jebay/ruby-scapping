@@ -6,6 +6,7 @@ ruby '3.0.2'
 
 gem 'erb', '~> 4.0', '>= 4.0.2'
 gem 'nokogiri'
+gem 'rake', '~> 13.0', '>= 13.0.6'
 gem 'rubocop', '~> 1.23'
 gem 'rubocop-performance'
 gem 'webrick'
