@@ -17,8 +17,7 @@ jobs:
 
       - name: Generate HTML file 🌐
         run: |
-          chmod +x chatGPT.rb && ./chatGpt.rb
-          mkdir build_output && mv index.html build_output
+          rake web_scraper
 
       - name: Deploy to Github Pages 🚀
         uses: JamesIves/github-pages-deploy-action@v4

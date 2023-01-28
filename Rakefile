@@ -8,7 +8,8 @@ require 'nokogiri'
 require 'open-uri'
 require_relative 'fruit'
 
-def web_scraper
+desc 'Scrape website and generate HMTML'
+task :web_scraper do
   # URL to scrape
   page = Nokogiri::HTML(URI.parse('https://rnm.franceagrimer.fr/prix?M2503:MARCHE').open)
 
@@ -39,5 +40,3 @@ def web_scraper
   # Write the result to the 'index.html' file
   File.write('index.html', result)
 end
-
-web_scraper
