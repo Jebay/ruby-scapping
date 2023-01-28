@@ -15,10 +15,14 @@ jobs:
         with:
           persist-credentials: false
 
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+
       - name: Generate HTML file 🌐
         run: |
-          bundle install
-          rake web_scraper
+          bundle exec rake web_scraper
 
       - name: Deploy to Github Pages 🚀
         uses: JamesIves/github-pages-deploy-action@v4
