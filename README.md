@@ -5,9 +5,8 @@ Make available the prices of fruit and vegetables in France through an applicati
 
 ## Steps
 1. [x] Collecte Data
-2. [ ] Fill in the database
-3. [ ] UX/UI
-4. [ ] Hosting the app
+3. [x] UX/UI --> Bootstrap
+4. [x] Hosting the app --> GitHub Pages
 
 ## Collaboration
 If you want to join my project, fill free to ask.
