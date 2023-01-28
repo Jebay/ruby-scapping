@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-# Fruit class to store the attributes of each fruit
-class Fruit
+# Food class to store the attributes of each food
+class Food
   def initialize(name, price, varia, min, max)
     @name   = name
     @price  = price
