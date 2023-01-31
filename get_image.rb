@@ -9,7 +9,7 @@ require 'nokogiri'
 def get_image_url(query)
   I18n.available_locales = [:en]
   query = I18n.transliterate(query.to_s)
- 
+
   url = "https://www.istockphoto.com/fr/search/2/image?excludenudity=false&phrase=#{query}/"
 
   # Send a GET request to the API URL
@@ -20,7 +20,5 @@ def get_image_url(query)
   img_urls = img_tags.map { |img| img['src'] }
 
   # Find the first URL that contains "https"
-  https_img_url = img_urls.find { |url| url.include?("https") }
-
-  return https_img_url
+  img_urls.find { |url| url.include?('https') }
 end
