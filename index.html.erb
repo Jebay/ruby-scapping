@@ -9,28 +9,32 @@
       <a href="index.html" class="btn btn-secondary">Retour à l'accueil</a>
     </div>
     <div class="container">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Price</th>
-          <th>Varia</th>
-          <th>Min</th>
-          <th>Max</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% foods.each do |food| %>
-          <tr>
-            <td><%= food.get_name %></td>
-            <td><%= food.get_price %>€</td>
-            <td><%= food.get_varia %>%</td>
-            <td><%= food.get_min %>€</td>
-            <td><%= food.get_max %>€</td>
-          </tr>
-          <% end %>
-      </tbody>
-    </table>
+      <section class="py-5">
+        <div class="container px-4 px-lg-5 mt-5">
+          <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            <% foods.each do |food| %>
+              <div class="col mb-5">
+                <div class="card h-100">
+                  <img class="card-img-top" src="<%= food.get_image %>" alt="...">
+                  <div class="card-body p-4">
+                      <div class="text-center">
+                          <h5 class="fw-bolder"><%= food.get_name %></h5>
+                              Variation : <%= food.get_varia %>%
+                              <br>
+                              Min : <%= food.get_min %>€ - Max : <%= food.get_max %>€
+                        </div>
+                  </div>
+                  <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                    <div class="text-center">
+                      <h5 class="mt-auto"><%= food.get_price %>€</h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <section class="py-5">
     </div>
   </body>
 </html>
