@@ -3,10 +3,11 @@
 
 # This code was generated with the help of ChatGPT, a language processing model trained by OpenAI.
 
-require 'erb'
 require 'nokogiri'
 require 'open-uri'
 require_relative 'food'
+require_relative 'generate_html'
+require_relative 'get_image'
 
 fruits_list = ['ABRICOT', 'ANANAS', 'BANANE', 'CERISE', 'CITRON', 'CITRON VERT',
                'CLÉMENTINE', 'COING', 'DATTE', 'FIGUE', 'FRAISE', 'FRAMBOISE', 'FRUIT DE LA PASSION', 'GRENADE',
@@ -40,30 +41,16 @@ task :web_scraper do
     max = row.css('td:nth-child(5)').text.strip
 
     # Check that the price contains only numbers
-    if /^[0-9]/.match?(price)
-      if fruits_list.any? { |fruit| name.include?(fruit) }
-        fruits << Food.new(name, price, varia, min, max)
-      elsif vegetables_list.any? { |vegetable| name.include?(vegetable) }
-        vegetables << Food.new(name, price, varia, min, max)
-      end
+    next unless /^[0-9]/.match?(price)
+    name_short = name.scan(/\b[A-ZÀ-Ý]+\b/).join('%20')
+    name_short = name_short.gsub('%20I', '').gsub('%20X', '').gsub('%20B', '')
+    if vegetables_list.any? { |vegetable| name.include?(vegetable) }
+      vegetables << Food.new(name, price, varia, min, max, get_image_url(name_short))
+    elsif fruits_list.any? { |fruit| name.include?(fruit) }
+      fruits << Food.new(name, price, varia, min, max, get_image_url(name_short))
     end
   end
 
   generate_html(vegetables, 'vegetables.html')
   generate_html(fruits, 'fruits.html')
-end
-
-def generate_html(list, output)
-  template = File.read('index.html.erb')
-  renderer = ERB.new(template)
-
-  # Create a new binding with 'list' as an instance variable
-  context = binding
-  context.local_variable_set(:foods, list)
-
-  # Render the template with the new binding
-  result = renderer.result(context)
-
-  # Write the result to the 'output' HTML file
-  File.write(output, result)
 end
