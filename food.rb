@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# rubocop:disable Metrics/ParameterLists
 # Food class to store the attributes of each food
 class Food
   def initialize(name, price, varia, min, max, image)
@@ -60,6 +61,7 @@ class Food
   end
 
   def display
-    puts "#{@name} : Average price #{@price}, delta #{@varia}%, Min price #{@min}, Max price #{@max}, Image URL #{@image}"
+    puts "#{@name}: Average price #{@price}, delta #{@varia}%, Min price #{@min}, Max price #{@max}, URL #{@image}"
   end
 end
+# rubocop:enable Metrics/ParameterLists

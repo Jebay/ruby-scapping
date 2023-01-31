@@ -41,14 +41,13 @@ task :web_scraper do
     max = row.css('td:nth-child(5)').text.strip
 
     # Check that the price contains only numbers
-    if /^[0-9]/.match?(price)
-      name_short = name.scan(/\b[A-ZÀ-Ý]+\b/).join("%20")
-      name_short = name_short.gsub("%20I", "").gsub("%20X", "").gsub("%20B", "")
-      if vegetables_list.any? { |vegetable| name.include?(vegetable) }
-        vegetables << Food.new(name, price, varia, min, max, get_image_url(name_short))
-      elsif fruits_list.any? { |fruit| name.include?(fruit) }
-        fruits << Food.new(name, price, varia, min, max, get_image_url(name_short))
-      end
+    next unless /^[0-9]/.match?(price)
+    name_short = name.scan(/\b[A-ZÀ-Ý]+\b/).join('%20')
+    name_short = name_short.gsub('%20I', '').gsub('%20X', '').gsub('%20B', '')
+    if vegetables_list.any? { |vegetable| name.include?(vegetable) }
+      vegetables << Food.new(name, price, varia, min, max, get_image_url(name_short))
+    elsif fruits_list.any? { |fruit| name.include?(fruit) }
+      fruits << Food.new(name, price, varia, min, max, get_image_url(name_short))
     end
   end
 
