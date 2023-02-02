@@ -10,7 +10,7 @@ def get_image_url(query)
   I18n.available_locales = [:en]
   query = I18n.transliterate(query.to_s)
 
-  url = "https://www.istockphoto.com/fr/search/2/image?excludenudity=false&phrase=#{query}/"
+  url = "https://www.istockphoto.com/fr/search/2/image?&mediatype=photography&excludenudity=true&phrase=#{query}/"
 
   # Send a GET request to the API URL
   response = Nokogiri::HTML(URI.parse(url).open)
