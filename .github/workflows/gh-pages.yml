@@ -43,3 +43,8 @@ jobs:
         uses: actions/deploy-pages@0243b6c10d06cb8e95ed8ee471231877621202c0
         with:
           artifact_name: gh-pages
+
+      - name: Delete artifact 🗑️
+        uses: geekyeggo/delete-artifact@v2
+        with:
+          name: gh-pages
