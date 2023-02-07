@@ -35,7 +35,7 @@ jobs:
       - name: Package and upload artifact 📦
         uses: actions/upload-pages-artifact@253fd476ed429e83b7aae64a92a75b4ceb1a17cf
         with:
-          path: build_output/
+          path: build_output
 
       - name: Deploy to Github Pages 🚀
         id: deployment
