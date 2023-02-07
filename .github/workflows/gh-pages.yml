@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: gh-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.deploy.outputs.page_url }}
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c
@@ -38,6 +38,7 @@ jobs:
           path: build_output/
 
       - name: Deploy to Github Pages 🚀
+        id: deployment
         uses: actions/deploy-pages@0243b6c10d06cb8e95ed8ee471231877621202c0
         with:
-          artifact_name: build_output
+          artifact_name: build_output/
