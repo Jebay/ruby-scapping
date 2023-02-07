@@ -1,21 +1,27 @@
 name: Publish Gallery
 on:
   push:
-    branches:
-      - main
+    branches: ["main"]
 permissions:
-  contents: write
+  contents: read
+  pages: write
 jobs:
-  test:
-    name: Publish Gallery to Github Pages
+  deploy:
+    name: Publish website to Github Pages
     runs-on: ubuntu-latest
+    environment:
+      name: gh-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout 🛎️
-        uses: actions/checkout@v3
+        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c
         with:
           persist-credentials: false
 
-      - name: Setup Ruby
+      - name: Setup Pages ⚙️
+        uses: actions/configure-pages@v37538b280cbfab35da9dcd936a2b95f1f522d927
+
+      - name: Setup Ruby 💎
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
@@ -25,15 +31,10 @@ jobs:
           bundle exec rake web_scraper
           mkdir build_output && mv *.html build_output
 
-      - name: Deploy to Github Pages 🚀
-        uses: JamesIves/github-pages-deploy-action@v4
+      - name: Package and upload artifact 📦
+        uses: actions/upload-pages-artifact@253fd476ed429e83b7aae64a92a75b4ceb1a17cf
         with:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-            BRANCH: gh-pages
-            FOLDER: build_output
-            CLEAN: true
+          path: build_output
 
-      - name: Delete artifact 🗑️
-        uses: geekyeggo/delete-artifact@v2
-        with:
-          name: build_output
+      - name: Deploy to Github Pages 🚀
+        uses: actions/deploy-pages@0243b6c10d06cb8e95ed8ee471231877621202c0
