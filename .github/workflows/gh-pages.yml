@@ -14,7 +14,6 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: gh-pages
-      url: ${{ steps.deploy.outputs.page_url }}
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c
