@@ -24,7 +24,7 @@ jobs:
         uses: actions/configure-pages@7110e9e03ffb4a421945e5d0607007b8e9f1f52b
 
       - name: Setup Ruby 💎
-        uses: ruby/setup-ruby@55283cc23133118229fd3f97f9336ee23a179fcf
+        uses: ruby/setup-ruby@7d546f4868fb108ed378764d873683f920672ae2
         with:
           bundler-cache: true
 
