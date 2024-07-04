@@ -41,7 +41,7 @@ jobs:
 
       - name: Deploy to Github Pages 🚀
         id: deployment
-        uses: actions/deploy-pages@73e62e651178eeba977de2dc9f4c7645b3d01015
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e
         with:
           artifact_name: gh-pages
 
