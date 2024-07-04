@@ -34,7 +34,7 @@ jobs:
           mkdir build_output && mv *.html build_output
 
       - name: Package and upload artifact 📦
-        uses: actions/upload-pages-artifact@64bcae551a7b18bcb9a09042ddf1960979799187
+        uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa
         with:
           path: 'build_output'
           name: gh-pages
