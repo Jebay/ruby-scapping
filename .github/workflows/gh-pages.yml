@@ -46,6 +46,6 @@ jobs:
           artifact_name: gh-pages
 
       - name: Delete artifact 🗑️
-        uses: geekyeggo/delete-artifact@v2
+        uses: geekyeggo/delete-artifact@v5
         with:
           name: gh-pages
